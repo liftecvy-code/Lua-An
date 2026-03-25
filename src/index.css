@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-color: #FAFAFA;
+  --text-color: #2C2C2C;
+  --accent-color: #800020;
+  --white: #FFFFFF;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-body); line-height: 1.6; }
+
+/* Header */
+header {
+  position: fixed; top: 0; width: 100%; padding: 20px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 1000; transition: var(--transition);
+}
+header.scrolled { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 10px 5%; }
+.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; }
+.nav-cta { background: var(--accent-color); color: var(--white); padding: 10px 25px; border-radius: 2px; font-weight: 600; font-size: 0.8rem; }
+
+/* Hero */
+.hero {
+  height: 100vh; text-align: center; color: var(--white);
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dzxl07ftg/image/upload/b_rgb:FC41CB/b_rgb:D1D6E0/e_background_removal/e_background_removal/z7654697950306_88ce86dd0ad429e40242393584fd5348_m0vcw7.jpg') center/cover;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.hero h1 { font-size: 4rem; color: var(--accent-color); margin-bottom: 10px; }
+.hero h2 { font-size: 1.8rem; font-style: italic; margin-bottom: 30px; }
+.hero-btn { border: 1px solid var(--white); padding: 15px 35px; color: var(--white); transition: var(--transition); position: relative; z-index: 1; overflow: hidden; }
+.hero-btn:hover { border-color: var(--accent-color); }
+.hero-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent-color); transition: var(--transition); z-index: -1; }
+.hero-btn:hover::before { left: 0; }
+
+/* Sections */
+.section-padding { padding: 100px 5%; }
+.brand-story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.story-image { height: 500px; overflow: hidden; }
+.story-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+.product-card { background: var(--white); transition: var(--transition); padding-bottom: 20px; }
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* =========================================
+   PRODUCT IMAGE EFFECTS (HOVER & CROSSFADE)
+   ========================================= */
+
+/* 1. Main Wrapper: Keeps the images contained and stacked */
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height based on your layout grid */
+    overflow: hidden;
+}
+
+/* 2. Shared Base Styles for Both Images */
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.7s ease-in-out; /* Premium, smooth transition */
+}
+
+/* -----------------------------------------
+   OPTION 1: HOVER EFFECT (Highly Recommended)
+   ----------------------------------------- */
+
+/* Hide the back image by default */
+.img-back {
+    opacity: 0; 
+}
+
+/* On mouse hover: Fade out the front image, fade in the back image */
+.product-image-wrapper:hover .img-front {
+    opacity: 0;
+}
+
+.product-image-wrapper:hover .img-back {
+    opacity: 1;
+}
+
+/* -----------------------------------------
+   OPTION 2: AUTO-CROSSFADE EFFECT
+   To use this, delete the "OPTION 1" code above and uncomment the code below.
+   ----------------------------------------- */
+
+/*
+.img-back {
+    animation: autoCrossfade 8s infinite; 
+}
+
+@keyframes autoCrossfade {
+    0%, 45% { opacity: 0; }
+    50%, 95% { opacity: 1; }
+    100% { opacity: 0; }
+}
+*/
+
+.lookbook-scroll { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
+.lookbook-item { min-width: 300px; position: relative; }
+.lookbook-item img { height: 450px; object-fit: cover; width: 100%; }
+
+/* Section Heading Wrapper */
+.section-heading-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading-wrapper h2 {
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #555555;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Benefits Section */
+.benefits-section { background-color: #f9f9f9; }
+.benefits-container { max-width: 800px; margin: 0 auto; }
+.benefits-title { text-align: center; margin-bottom: 50px; font-family: var(--font-heading); font-size: 2.5rem; }
+.accordion { margin-top: 30px; }
+
+/* Accordion */
+.accordion-item { border-bottom: 1px solid #eee; }
+.accordion-header { width: 100%; padding: 25px 0; background: none; border: none; text-align: left; font-family: var(--font-heading); font-size: 1.3rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
+.accordion-header:hover { color: var(--accent-color); }
+.accordion-header.active { color: var(--accent-color); }
+.accordion-icon { font-size: 1.5rem; transition: transform 0.4s ease; }
+.accordion-header.active .accordion-icon { transform: rotate(45deg); }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); }
+.accordion-content p { padding-bottom: 25px; color: #666; line-height: 1.8; font-size: 1rem; }
+
+/* Footer */
+footer { background: var(--text-color); color: var(--white); text-align: left; }
+.footer-container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+.footer-logo { height: 80px; width: auto; margin-bottom: 20px; }
+.footer-tagline { font-family: var(--font-heading); font-style: italic; font-size: 1.1rem; opacity: 0.8; }
+.footer-contact h3, .footer-address h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px; }
+.footer-contact p, .footer-address p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 10px; }
+
+@media (max-width: 768px) {
+  .brand-story, .collection-grid, .footer-container { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.5rem; }
+}
