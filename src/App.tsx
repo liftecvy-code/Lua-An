@@ -155,11 +155,19 @@ export default function App() {
       <section className="section-padding collection">
         <div className="section-heading-wrapper">
           <h2
-            data-vi="BỘ SƯU TẬP KHĂN LỤA"
-            data-en="SILK SCARF COLLECTION"
+            data-vi="BỘ SƯU TẬP: BA CHƯƠNG CỦA MỘT HÀNH TRÌNH"
+            data-en="THE COLLECTION: THREE CHAPTERS OF A JOURNEY"
           >
-            {lang === 'vi' ? 'BỘ SƯU TẬP KHĂN LỤA' : 'SILK SCARF COLLECTION'}
+            {lang === 'vi' ? 'BỘ SƯU TẬP: BA CHƯƠNG CỦA MỘT HÀNH TRÌNH' : 'THE COLLECTION: THREE CHAPTERS OF A JOURNEY'}
           </h2>
+          <p className="section-subtitle"
+            data-vi="Văn hóa cội nguồn – Đời sống con người – Cảm xúc thiên nhiên. Khi đặt cạnh nhau, chúng tạo nên một thông điệp trọn vẹn. Mỗi chiếc khăn không chỉ là phụ kiện thời trang, mà là một tác phẩm nghệ thuật biết kể chuyện."
+            data-en="Cultural heritage – Human life – Natural emotion. Placed together, they form a complete narrative. Each scarf is not merely a fashion accessory, but a storytelling masterpiece."
+          >
+            {lang === 'vi' 
+              ? 'Văn hóa cội nguồn – Đời sống con người – Cảm xúc thiên nhiên. Khi đặt cạnh nhau, chúng tạo nên một thông điệp trọn vẹn. Mỗi chiếc khăn không chỉ là phụ kiện thời trang, mà là một tác phẩm nghệ thuật biết kể chuyện.' 
+              : 'Cultural heritage – Human life – Natural emotion. Placed together, they form a complete narrative. Each scarf is not merely a fashion accessory, but a storytelling masterpiece.'}
+          </p>
         </div>
         
         <div className="collection-grid">
@@ -175,6 +183,32 @@ export default function App() {
               {lang === 'vi' ? 'Những họa tiết di sản được tái hiện trên nền lụa thượng hạng.' : 'Heritage patterns reimagined on premium silk.'}
             </p>
             
+            <div className="product-story-accordion" style={{ padding: '0 25px', marginBottom: '20px' }}>
+              <div className="accordion-item">
+                <button className="accordion-header" onClick={toggleAccordion} style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--gold-muted)' }}>{lang === 'vi' ? 'Khám phá ý nghĩa' : 'Discover the meaning'}</span>
+                  <span className="accordion-icon" style={{ color: 'var(--gold-muted)' }}>+</span>
+                </button>
+                <div className="accordion-content">
+                  <p style={{ fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '10px' }}>
+                    {lang === 'vi' 
+                      ? 'Bản nhạc của truyền thống. Ở trung tâm là họa tiết trống đồng Đông Sơn xoay tròn như nhịp thời gian, giao thoa cùng hình ảnh thiếu nữ chơi đàn và phố cổ.' 
+                      : 'The symphony of tradition. Centered with the Dong Son bronze drum pattern spinning like the rhythm of time, intersecting with images of a maiden playing music and ancient streets.'}
+                  </p>
+                  <ul style={{ paddingLeft: '20px', fontSize: '0.85rem', color: '#666' }}>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Đặc trưng: ' : 'Features: '}</strong>
+                      {lang === 'vi' ? 'Tương phản hiện đại Đen – Vàng – Hồng – Cam.' : 'Modern contrast of Black – Gold – Pink – Orange.'}
+                    </li>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Ý nghĩa: ' : 'Meaning: '}</strong>
+                      {lang === 'vi' ? 'Tôn vinh bản sắc dân tộc và sự kết nối cội nguồn thiêng liêng.' : 'Honors national identity and the sacred connection to heritage.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <div className="product-checkout">
               <h3 className="price-tag" data-vi="Giá: 480.000 VNĐ" data-en="Price: $18.90">
                 {lang === 'vi' ? 'Giá: 480.000 VNĐ' : 'Price: $18.90'}
@@ -269,12 +303,38 @@ export default function App() {
             <div className="product-image-wrapper">
               <div className="product-image img-front" style={{ backgroundImage: "url('https://res.cloudinary.com/dzxl07ftg/image/upload/q_auto/f_auto/v1774408856/z7653013502697_3e9810cb911627e9c212bf678eb690ed_o4mya1.jpg')" }}></div>
             </div>
-            <h3 className="product-title" data-vi="Hành Trình Văn Hóa" data-en="Cultural Journey">
-              {lang === 'vi' ? 'Hành Trình Văn Hóa' : 'Cultural Journey'}
+            <h3 className="product-title" data-vi="Gà Trống" data-en="The Rooster">
+              {lang === 'vi' ? 'Gà Trống' : 'The Rooster'}
             </h3>
             <p className="product-description" data-vi="Sự kết hợp tinh tế giữa kỹ thuật dệt truyền thống và phong cách hiện đại." data-en="A delicate blend of traditional weaving techniques and modern style.">
               {lang === 'vi' ? 'Sự kết hợp tinh tế giữa kỹ thuật dệt truyền thống và phong cách hiện đại.' : 'A delicate blend of traditional weaving techniques and modern style.'}
             </p>
+
+            <div className="product-story-accordion" style={{ padding: '0 25px', marginBottom: '20px' }}>
+              <div className="accordion-item">
+                <button className="accordion-header" onClick={toggleAccordion} style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--gold-muted)' }}>{lang === 'vi' ? 'Khám phá ý nghĩa' : 'Discover the meaning'}</span>
+                  <span className="accordion-icon" style={{ color: 'var(--gold-muted)' }}>+</span>
+                </button>
+                <div className="accordion-content">
+                  <p style={{ fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '10px' }}>
+                    {lang === 'vi' 
+                      ? 'Khung tranh dân gian của đời sống. Hình ảnh Gà trống tượng trưng cho sự thức tỉnh và khởi đầu mới, bao quanh là nhịp sống lao động bình dị, ca hát của con người.' 
+                      : 'A folk painting of life. The Rooster symbolizes awakening and a new beginning, surrounded by the simple working life and singing of the people.'}
+                  </p>
+                  <ul style={{ paddingLeft: '20px', fontSize: '0.85rem', color: '#666' }}>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Đặc trưng: ' : 'Features: '}</strong>
+                      {lang === 'vi' ? 'Bảng màu Đỏ – Xanh – Vàng mang lại cảm giác nghệ thuật thủ công ấm áp.' : 'The Red – Blue – Yellow palette brings a warm, artisanal feel.'}
+                    </li>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Ý nghĩa: ' : 'Meaning: '}</strong>
+                      {lang === 'vi' ? 'Nhắc nhở rằng văn hóa truyền thống chính là linh hồn của vùng đất, mang thông điệp sung túc.' : 'Reminds us that traditional culture is the soul of the land, carrying a message of prosperity.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             
             <div className="product-checkout">
               <h3 className="price-tag" data-vi="Giá: 480.000 VNĐ" data-en="Price: $18.90">
@@ -361,6 +421,32 @@ export default function App() {
             <p className="product-description" data-vi="Cảm hứng từ sắc màu rực rỡ của cỏ cây hoa lá Việt Nam." data-en="Inspired by the vibrant colors of Vietnam's flora.">
               {lang === 'vi' ? 'Cảm hứng từ sắc màu rực rỡ của cỏ cây hoa lá Việt Nam.' : 'Inspired by the vibrant colors of Vietnam\'s flora.'}
             </p>
+
+            <div className="product-story-accordion" style={{ padding: '0 25px', marginBottom: '20px' }}>
+              <div className="accordion-item">
+                <button className="accordion-header" onClick={toggleAccordion} style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--gold-muted)' }}>{lang === 'vi' ? 'Khám phá ý nghĩa' : 'Discover the meaning'}</span>
+                  <span className="accordion-icon" style={{ color: 'var(--gold-muted)' }}>+</span>
+                </button>
+                <div className="accordion-content">
+                  <p style={{ fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '10px' }}>
+                    {lang === 'vi' 
+                      ? 'Bản hòa ca của thiên nhiên và sự sống. Những bông hoa rực rỡ bừng nở trên nền lụa tối, hoa văn chuyển động nhẹ nhàng theo ánh sáng và nếp lụa.' 
+                      : 'A chorus of nature and life. Vibrant flowers blooming on a dark silk background, patterns moving gently with the light and silk folds.'}
+                  </p>
+                  <ul style={{ paddingLeft: '20px', fontSize: '0.85rem', color: '#666' }}>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Đặc trưng: ' : 'Features: '}</strong>
+                      {lang === 'vi' ? 'Họa tiết hoa lớn, mềm mại, tạo chiều sâu xa xỉ và độ sang trọng.' : 'Large, soft floral patterns, creating luxurious depth and elegance.'}
+                    </li>
+                    <li>
+                      <strong>{lang === 'vi' ? 'Ý nghĩa: ' : 'Meaning: '}</strong>
+                      {lang === 'vi' ? 'Tượng trưng cho sự tự do, vẻ đẹp nữ tính và sự hòa hợp tuyệt đối với thiên nhiên.' : 'Symbolizes freedom, feminine beauty, and absolute harmony with nature.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             
             <div className="product-checkout">
               <h3 className="price-tag" data-vi="Giá: 480.000 VNĐ" data-en="Price: $18.90">
